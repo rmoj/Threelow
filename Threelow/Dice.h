@@ -17,5 +17,6 @@
 - (instancetype)initWithName:diceID;
 - (id)randomize;
 - (void) printValue;
++ (void) roll: (Dice*) die;
 
 @end

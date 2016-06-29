@@ -37,4 +37,10 @@
 
 }
 
++ (void) roll: (Dice*) die {
+
+     [[die randomize] printValue];
+
+}
+
 @end

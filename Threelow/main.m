@@ -8,30 +8,34 @@
 
 #import <Foundation/Foundation.h>
 #import "Dice.h"
+#import "InputController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        Dice *dice1 = [[Dice alloc] initWithName:@"dice 1"];
-        Dice *dice2 = [[Dice alloc] initWithName:@"dice 2"];
-        Dice *dice3 = [[Dice alloc] initWithName:@"dice 3"];
-        Dice *dice4 = [[Dice alloc] initWithName:@"dice 4"];
-        Dice *dice5 = [[Dice alloc] initWithName:@"dice 5"];
+        Dice *dice1 = [[Dice alloc] initWithName:@"I"];
+        //Dice *dice2 = [[Dice alloc] initWithName:@"II"];
+        //Dice *dice3 = [[Dice alloc] initWithName:@"III"];
+        //Dice *dice4 = [[Dice alloc] initWithName:@"IV"];
+        //Dice *dice5 = [[Dice alloc] initWithName:@"V"];
         
-        [dice1 printValue];
-        [dice2 printValue];
-        [dice3 printValue];
-        [dice4 printValue];
-        [dice5 printValue];
+        InputController *inputHandler = [[InputController alloc]init];
+        [inputHandler displayGameMenu];
+        NSMutableString *userChoice = [inputHandler receiveInput];
         
-        NSLog(@"\nRandomized Values:\n");
+        while ([userChoice isEqualToString:@"roll"]) {
         
-        [[dice1 randomize] printValue];
-        [[dice2 randomize] printValue];
-        [[dice3 randomize] printValue];
-        [[dice4 randomize] printValue];
-        [[dice5 randomize] printValue];
+            [Dice roll:dice1];
+            
+            [inputHandler displayGameMenu];
+            userChoice = [inputHandler receiveInput];
         
+        }
+        
+        if ([userChoice isEqualToString:@"quit"]) {
+        
+            printf("\n\nGoodbye!\n");
+        }
     }
     return 0;
 }
