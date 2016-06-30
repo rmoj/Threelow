@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
             }
             
             if ([userChoice isEqualToString:@"score"]) {
-                [gControl displayScore];
+                [gControl computeScore];
             }
             
             [gControl displayGameMenu];

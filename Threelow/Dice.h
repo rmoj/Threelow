@@ -10,7 +10,7 @@
 
 @interface Dice : NSObject
 
-@property char *value;
+@property int value;
 
 - (void)randomize;
 

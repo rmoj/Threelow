@@ -25,7 +25,8 @@
 - (void)unholdDie;
 - (void)resetDice;
 - (BOOL)checkifHeld:(Dice*) die;
-- (void)displayScore;
+- (int)computeScore;
+
 
 
 

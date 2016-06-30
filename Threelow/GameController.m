@@ -52,15 +52,37 @@
 }
 
 
--(id) printdieValue:(int)index die:(Dice*)die {
+-(void) printdieValue:(int)index die:(Dice*)die {
+
+    char *equivValue;
     
-    //NSLog(@"%d %s\n",index, die.value);
-    if(!([self checkifHeld:die])){
-        printf("%d %s\n",index, die.value);
-    } else {
-    printf("%d [%s]\n",index, die.value);
+    switch (die.value) {
+        case 1:
+            equivValue = "I";
+            break;
+        case 2:
+            equivValue = "II";
+            break;
+        case 3:
+            equivValue = "III";
+            break;
+        case 4:
+            equivValue = "IV";
+            break;
+        case 5:
+            equivValue = "V";
+        case 6:
+            equivValue = "VI";
+            break;
+        default:
+            break;
     }
-    return self;
+
+    if(!([self checkifHeld:die])){
+        printf("%d\t%s\t > %d\n",index,equivValue,die.value);
+    } else {
+        printf("%d\t[%s]\t > %d\n",index,equivValue,die.value);
+    }
     
 }
 
@@ -69,6 +91,8 @@
     for (int i=0; i<5; i++) {
         [self printdieValue:i die:self.diceArray[i]];
     }
+    int score = [self computeScore];
+    printf("\nSCORE: %d", score);
     printf("\n");
 }
 
@@ -98,15 +122,6 @@
         }
         strIndex = [InputController receiveInput];
     }
-    
-    
-    /* Check for set members
-     
-     id setMember;
-     for (setMember in self.helddiceSet) {
-     NSLog(@"Set contains member %@", setMember);
-     
-     } */
     
 }
 
@@ -160,15 +175,6 @@
         strIndex = [InputController receiveInput];
     }
     
-    
-    /* Check for set members
-     
-     id setMember;
-     for (setMember in self.helddiceSet) {
-     NSLog(@"Set contains member %@", setMember);
-     
-     } */
-    
 }
 
 - (void)resetDice {
@@ -177,9 +183,19 @@
     
 }
 
-- (void)displayScore {
+
+- (int)computeScore {
+    int score = 0;
+    Dice* die;
     
-    
+    for (int i=0;i<5;i++) {
+        die = self.diceArray[i];
+        if (die.value != 3 ){
+            score = score + die.value;
+        }
+    }
+
+    return score;
 }
 
 

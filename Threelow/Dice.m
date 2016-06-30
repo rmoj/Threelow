@@ -23,29 +23,7 @@
 
 - (void)randomize {
     
-    int random = arc4random_uniform(6) + 1;
-    
-    switch (random) {
-        case 1:
-            self.value = "I";
-            break;
-        case 2:
-            self.value = "II";
-            break;
-        case 3:
-            self.value = "III";
-            break;
-        case 4:
-            self.value = "IV";
-            break;
-        case 5:
-            self.value = "V";
-        case 6:
-            self.value = "VI";
-            break;
-        default:
-            break;
-    }
+    self.value = arc4random_uniform(6) + 1;
     
 }
 
