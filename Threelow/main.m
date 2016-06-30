@@ -7,35 +7,59 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Dice.h"
+#import "GameController.h"
 #import "InputController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+   
+        //NSLog(@"dice 1 is %d",dice1.value);
+        //[diceArray[1] printValue];
         
-        Dice *dice1 = [[Dice alloc] initWithName:@"I"];
-        //Dice *dice2 = [[Dice alloc] initWithName:@"II"];
-        //Dice *dice3 = [[Dice alloc] initWithName:@"III"];
-        //Dice *dice4 = [[Dice alloc] initWithName:@"IV"];
-        //Dice *dice5 = [[Dice alloc] initWithName:@"V"];
+        GameController * gControl = [[GameController alloc] initWithProperties];
         
-        InputController *inputHandler = [[InputController alloc]init];
-        [inputHandler displayGameMenu];
-        NSMutableString *userChoice = [inputHandler receiveInput];
+        [gControl displayGameMenu];
         
-        while ([userChoice isEqualToString:@"roll"]) {
+        NSMutableString *userChoice = [InputController receiveInput];
         
-            [Dice roll:dice1];
+        while (!([userChoice isEqualToString:@"quit"])) {
+        
+            if ([userChoice isEqualToString:@"roll"]) {
+                
+                [gControl rollDie];
             
-            [inputHandler displayGameMenu];
-            userChoice = [inputHandler receiveInput];
-        
+            }
+            
+            if ([userChoice isEqualToString:@"hold"]) {
+            
+                printf("You chose to hold");
+                
+                [gControl holdDie];
+                [gControl printValues];
+                
+            }
+            
+            if ([userChoice isEqualToString:@"unhold"]) {
+                [gControl unholdDie];
+                [gControl printValues];
+            }
+            
+            if ([userChoice isEqualToString:@"reset"]) {
+                [gControl resetDice];
+                [gControl printValues];
+            }
+            
+            if ([userChoice isEqualToString:@"score"]) {
+                [gControl displayScore];
+            }
+            
+            [gControl displayGameMenu];
+            userChoice = [InputController receiveInput];
+            
         }
         
-        if ([userChoice isEqualToString:@"quit"]) {
+        printf("\n\nGoodbye!\n");
         
-            printf("\n\nGoodbye!\n");
-        }
     }
     return 0;
 }

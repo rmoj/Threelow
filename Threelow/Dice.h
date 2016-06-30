@@ -10,13 +10,9 @@
 
 @interface Dice : NSObject
 
-@property NSString *name;
-@property int value;
+@property char *value;
 
+- (void)randomize;
 
-- (instancetype)initWithName:diceID;
-- (id)randomize;
-- (void) printValue;
-+ (void) roll: (Dice*) die;
 
 @end

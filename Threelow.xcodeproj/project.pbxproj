@@ -10,6 +10,7 @@
 		A7084D6D1D2414A200BC9561 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7084D6C1D2414A200BC9561 /* main.m */; };
 		A7084D751D2415C400BC9561 /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = A7084D741D2415C400BC9561 /* Dice.m */; };
 		A7084D781D24253600BC9561 /* InputController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7084D771D24253600BC9561 /* InputController.m */; };
+		A7084D7B1D244DCD00BC9561 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7084D7A1D244DCD00BC9561 /* GameController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		A7084D741D2415C400BC9561 /* Dice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dice.m; sourceTree = "<group>"; };
 		A7084D761D24253600BC9561 /* InputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputController.h; sourceTree = "<group>"; };
 		A7084D771D24253600BC9561 /* InputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputController.m; sourceTree = "<group>"; };
+		A7084D791D244DCD00BC9561 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		A7084D7A1D244DCD00BC9561 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				A7084D771D24253600BC9561 /* InputController.m */,
 				A7084D731D2415C400BC9561 /* Dice.h */,
 				A7084D741D2415C400BC9561 /* Dice.m */,
+				A7084D791D244DCD00BC9561 /* GameController.h */,
+				A7084D7A1D244DCD00BC9561 /* GameController.m */,
 			);
 			path = Threelow;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7084D751D2415C400BC9561 /* Dice.m in Sources */,
+				A7084D7B1D244DCD00BC9561 /* GameController.m in Sources */,
 				A7084D6D1D2414A200BC9561 /* main.m in Sources */,
 				A7084D781D24253600BC9561 /* InputController.m in Sources */,
 			);

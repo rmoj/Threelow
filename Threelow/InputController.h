@@ -10,10 +10,6 @@
 
 @interface InputController : NSObject
 
-- (void)displayMainMenu;
-- (void)displayGameMenu;
-- (NSMutableString*)receiveInput;
-
-
++ (NSMutableString*)receiveInput;
 
 @end

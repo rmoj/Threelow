@@ -11,23 +11,7 @@
 @implementation InputController
 
 
-
-- (void)displayMainMenu{
-
-    printf("Do you want to play? (Y/N)");
-
-}
-
-- (void)displayGameMenu{
-
-    printf("\nWhat do you want to do?\n\n") ;
-    printf("roll\n");
-    printf("quit\n");
-    printf("\nEnter choice: ");
-
-}
-
-- (NSMutableString*)receiveInput{
++ (NSMutableString*)receiveInput{
     
     char choice[255];
     fgets(choice, 255, stdin);
@@ -37,6 +21,7 @@
     
    
 }
+
 
 
 

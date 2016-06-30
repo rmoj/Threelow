@@ -11,36 +11,43 @@
 @implementation Dice
 
 
-- (instancetype)initWithName:diceID {
+- (instancetype)init {
     
     self = [super init];
     if (self) {
-        _name = diceID;
-        _value = 1;
+        [self randomize];
     }
     return self;
 }
 
 
-- (id)randomize {
+- (void)randomize {
     
+    int random = arc4random_uniform(6) + 1;
     
-    self.value = arc4random_uniform(6) + 1;
-    
-    return self;
+    switch (random) {
+        case 1:
+            self.value = "I";
+            break;
+        case 2:
+            self.value = "II";
+            break;
+        case 3:
+            self.value = "III";
+            break;
+        case 4:
+            self.value = "IV";
+            break;
+        case 5:
+            self.value = "V";
+        case 6:
+            self.value = "VI";
+            break;
+        default:
+            break;
+    }
     
 }
 
-- (void) printValue {
-
-    NSLog(@"Value of %@ is %d", self.name, self.value);
-
-}
-
-+ (void) roll: (Dice*) die {
-
-     [[die randomize] printValue];
-
-}
 
 @end
